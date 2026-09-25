@@ -39,6 +39,31 @@ header {
   padding: 1.5rem 0;
 }
 
+.handle {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: 0.02rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+}
+
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--ink);
+}
+
 /* BODY */
 body {
   margin: 0;
@@ -156,9 +181,6 @@ section {
   padding: 1.75rem 0;
   border-top: 2px solid var(--ink);
 }
-  .skill-group:last-child {
-    border-bottom: 2px solid var(--ink);
-  }
   .skill-group h3 {
     font-family: var(--display);
     font-weight: 600;
@@ -166,40 +188,38 @@ section {
     line-height: 1.05;
     margin: 0;
   }
-
-.chips {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.chips li {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.45rem 0.85rem 0.45rem 0.6rem;
-  background: var(--panel);
-  border-left: 3px solid var(--steel);
-  font-weight: 500;
-  font-size: 0.98rem;
-}
-
-.chips li.text {
-  padding-left: 0.85rem;
-}
-
-.chips img, chips svg {
-  width: 24px;
-  height: 24px;
-  flex: none;
-}
-
-.chips svg {
-  color: var(--ink);
-}
+    .skill-group:last-child {
+      border-bottom: 2px solid var(--ink);
+    }
+      .chips {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+        .chips li {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.55rem;
+          padding: 0.45rem 0.85rem 0.45rem 0.6rem;
+          background: var(--panel);
+          border-left: 3px solid var(--steel);
+          font-weight: 500;
+          font-size: 0.98rem;
+        }
+          .chips li.text {
+            padding-left: 0.85rem;
+          }
+            .chips img, chips svg {
+              width: 24px;
+              height: 24px;
+              flex: none;
+            }
+              .chips svg {
+                color: var(--ink);
+              }
 
 :root[data-theme="dark"] .chips img.mono {
   filter: invert(1);
@@ -235,11 +255,10 @@ section {
   margin: 0;
   border-left: 4px solid var(--verdigris);
 }
-
-.offers li {
-  padding: 0.55rem 0 0.55rem 1.25rem;
-  font-weight: 500;
-}
+  .offers li {
+    padding: 0.55rem 0 0.55rem 1.25rem;
+    font-weight: 500;
+  }
 
 @media (min-width: 760px) {
   .venture {
@@ -285,5 +304,33 @@ section {
 .contact {
   background: var(--panel);
 }
+  .contact p {
+    max-width: 34rem;
+  }
 
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 3px solid var(--ink);
+  border-radius: 5px;
+}
+.btn.primary {
+  background: var(--ink);
+  color: var(--concrete);
+}
+  .btn:hover {
+    border-color: var(--verdigris);
+  }
+    .btn.primary:hover {
+      /* color: var(--verdigris); */
+    }
 
