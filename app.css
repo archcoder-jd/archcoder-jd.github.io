@@ -1,3 +1,4 @@
+/* SITE COLOR VARIABLES */
 :root {
   --concrete: #E9ECEA;
   --panel: #DDE2DF;
@@ -27,6 +28,18 @@
 *, *::before, *::after { box-sizing: inherit; }
 html { scroll-padding-top: env(safe-area-inset-top, 0px); }
 
+
+/* HEADER */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+/* BODY */
 body {
   margin: 0;
   background: var(--concrete);
@@ -34,6 +47,48 @@ body {
   font-family: var(--body);
   font-size: 1.0625rem;
   line-height: 1.6;
+}
+
+/* Hero: The Arch */
+.hero { padding: 2rem 0 4rem; }
+.arch { width: 100%; height: auto; display: block; overflow: visible; }
+.arch .span { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; }
+.arch .deck { stroke: var(--ink); stroke-width: 4; }
+.arch .hanger { stroke: var(--steel); stroke-width: 2; }
+.arch .pier { fill: var(--ink); }
+.arch .text { font-family: var(--body); font-size: 17px; fill: var(--muted); }
+.arch .need { fill: var(--verdigris); font-weight: 600; }
+
+/* Arch Animation */
+@media (prefers-reduced-motion: no-preference) {
+  .arch .span {
+    stroke-dasharray: 1200;
+    stroke-dashoffset: 1200;
+    animation: draw 1.6s ease-out 0.2s forwards;
+  }
+  .arch .hanger {
+    opacity: 0;
+    animation: appear 0.5s ease-out 0.2s forwards;
+  }
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
+
+h1 {
+  font-family: var(--display);
+  font-weight: 800;
+  line-height: 0.95;
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  margin: 2.5rem 0 1rem;
+  max-width: 14ch;
 }
 
 a {
@@ -50,12 +105,185 @@ a:focus-visible, button:focus-visible {
   padding: 0 1.5rem;
 }
 
-/* Header */
-header {
+.lede {
+  max-width: 38rem;
+  color: var(--muted);
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+/* Project */
+.project {
+  display: grid;
+  gap: 0.5rem 2rem;
+  grid-template-columns: 1fr;
+  padding: 2rem 0;
+  border-top: 2px solid var(--ink);
+}
+.project:last-child {
+  border-bottom: 2px solid var(--ink);
+}
+.project h3 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.9rem;
+  line-height: 1.05;
+  margin: 0;
+}
+.project p {
+  margin: 0 0 0.75rem;
+  max-width: 38rem;
+}
+  .platform {
+    color: var(--verdigris);
+    font-weight: 600;
+    margin: 0.4rem 0 0;
+  }
+    .stack {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+/* Skills */
+.skill-group {
+  display: grid;
+  gap: 1rem 2rem;
+  grid-template-columns: 1fr;
+  padding: 1.75rem 0;
+  border-top: 2px solid var(--ink);
+}
+  .skill-group:last-child {
+    border-bottom: 2px solid var(--ink);
+  }
+  .skill-group h3 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 1.05;
+    margin: 0;
+  }
+
+.chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1.5rem;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 0;
+  gap: 0.6rem;
 }
+
+.chips li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 0.85rem 0.45rem 0.6rem;
+  background: var(--panel);
+  border-left: 3px solid var(--steel);
+  font-weight: 500;
+  font-size: 0.98rem;
+}
+
+.chips li.text {
+  padding-left: 0.85rem;
+}
+
+.chips img, chips svg {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+
+.chips svg {
+  color: var(--ink);
+}
+
+:root[data-theme="dark"] .chips img.mono {
+  filter: invert(1);
+}
+
+@media (min-width: 760px) {
+  .skill-group {
+    grid-template-columns: 14rem 1fr;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .chips img.mono {
+    filter: invert(1);
+  }
+}
+
+/* Venture31 */
+.venture {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  align-items: end;
+}
+
+.venture p {
+  max-width: 36rem;
+  margin: 0 0 1rem;
+}
+
+.offers {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 4px solid var(--verdigris);
+}
+
+.offers li {
+  padding: 0.55rem 0 0.55rem 1.25rem;
+  font-weight: 500;
+}
+
+@media (min-width: 760px) {
+  .venture {
+    grid-template-columns: 1.3fr 1fr;
+  }  
+}
+
+/* About */
+.about {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+}
+
+.about p {
+  max-width: 36rem;
+  margin: 0 0 1rem;
+}
+
+.industries-title {
+  font-weight: 600;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+}
+  .industries {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 4px solid var(--verdigris);
+  }
+    .industries li {
+      padding: 0.55rem 0 0.55rem 1.25rem;
+      font-weight: 500;
+    }
+
+@media (min-width: 760px) {
+  .about {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+/* Contact */
+.contact {
+  background: var(--panel);
+}
+
+
