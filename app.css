@@ -1,0 +1,24 @@
+:root {
+  --concrete: #E9ECEA;
+  --panel: #DDE2DF;
+  --ink: #1B2A2F;
+  --muted: #56666B;
+  --verdigris: #3E8E7E;
+  --steel: #8A989C;
+  --display: "Big Shoulders Display", "Arial Narrow", Imapact, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --concrete: #141C1F; --panel: #1C2629; --ink: #E3E8E6;
+    --muted: #9AA8AC; --verdigris: #5FB5A3; --steel: #5A6A6F;
+  }
+}
+
+:root[data-theme="dark"] {
+  
+}
