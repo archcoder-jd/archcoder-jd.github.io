@@ -28,6 +28,24 @@
 *, *::before, *::after { box-sizing: inherit; }
 html { scroll-padding-top: env(safe-area-inset-top, 0px); }
 
+/* BODY */
+body {
+  margin: 0; background: var(--concrete); color: var(--ink);
+  font-family: var(--body); font-size: 1.0625rem; line-height: 1.6;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+h1 {
+  font-family: var(--display); font-weight: 800; line-height: 0.95;
+  font-size: clamp(2.8rem, 8vw, 5.5rem); margin: 2.5rem 0 1rem; max-width: 14ch;
+}
+
+a { color: var(--verdigris); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--verdigris); outline-offset: 3px; }
+.wrap { max-width: 64rem; margin: 0 auto; padding: 0 1.5rem; }
 
 /* HEADER */
 header {
@@ -48,31 +66,9 @@ header {
   color: var(--ink);
 }
 
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.25rem;
-}
-
-nav a {
-  color: var(--muted);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-nav a:hover {
-  color: var(--ink);
-}
-
-/* BODY */
-body {
-  margin: 0;
-  background: var(--concrete);
-  color: var(--ink);
-  font-family: var(--body);
-  font-size: 1.0625rem;
-  line-height: 1.6;
-}
+nav { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; }
+nav a { color: var(--muted); text-decoration: none; font-weight: 500; }
+nav a:hover { color: var(--ink); }
 
 /* Hero: The Arch */
 .hero { padding: 2rem 0 4rem; }
@@ -81,8 +77,9 @@ body {
 .arch .deck { stroke: var(--ink); stroke-width: 4; }
 .arch .hanger { stroke: var(--steel); stroke-width: 2; }
 .arch .pier { fill: var(--ink); }
-.arch .text { font-family: var(--body); font-size: 17px; fill: var(--muted); }
+.arch text { font-family: var(--body); font-size: 17px; fill: var(--muted); }
 .arch .need { fill: var(--verdigris); font-weight: 600; }
+.lede { max-width: 38rem; color: var(--muted); font-size: 1.2rem; margin: 0; }
 
 /* Arch Animation */
 @media (prefers-reduced-motion: no-preference) {
@@ -95,6 +92,7 @@ body {
     opacity: 0;
     animation: appear 0.5s ease-out 0.2s forwards;
   }
+
 }
 @keyframes draw {
   to {
@@ -107,38 +105,10 @@ body {
   }
 }
 
-h1 {
-  font-family: var(--display);
-  font-weight: 800;
-  line-height: 0.95;
-  font-size: clamp(2.8rem, 8vw, 5.5rem);
-  margin: 2.5rem 0 1rem;
-  max-width: 14ch;
-}
-
-a {
-  color: var(--verdigris);
-  text-underline-offset: 3px;
-}
-a:focus-visible, button:focus-visible {
-  outline: 3px solid var(--verdigris);
-  outline-offset: 3px;
-}
-.wrap {
-  max-width: 64rem;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.lede {
-  max-width: 38rem;
-  color: var(--muted);
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-section {
-  padding: 4rem 0;
+@media (max-width: 520px) {
+  .arch text {
+    font-size: 26px;
+  }
 }
 
 /* Project */
@@ -191,35 +161,35 @@ section {
     .skill-group:last-child {
       border-bottom: 2px solid var(--ink);
     }
-      .chips {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-      }
-        .chips li {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.55rem;
-          padding: 0.45rem 0.85rem 0.45rem 0.6rem;
-          background: var(--panel);
-          border-left: 3px solid var(--steel);
-          font-weight: 500;
-          font-size: 0.98rem;
-        }
-          .chips li.text {
-            padding-left: 0.85rem;
-          }
-            .chips img, chips svg {
-              width: 24px;
-              height: 24px;
-              flex: none;
-            }
-              .chips svg {
-                color: var(--ink);
-              }
+.chips {
+list-style: none;
+margin: 0;
+padding: 0;
+display: flex;
+flex-wrap: wrap;
+gap: 0.6rem;
+}
+.chips li {
+display: inline-flex;
+align-items: center;
+gap: 0.55rem;
+padding: 0.45rem 0.85rem 0.45rem 0.6rem;
+background: var(--panel);
+border-left: 3px solid var(--steel);
+font-weight: 500;
+font-size: 0.98rem;
+}
+.chips li.text {
+padding-left: 0.85rem;
+}
+.chips img, .chips svg {
+width: 24px;
+height: 24px;
+flex: none;
+}
+.chips svg {
+  color: var(--ink);
+}
 
 :root[data-theme="dark"] .chips img.mono {
   filter: invert(1);
@@ -334,3 +304,8 @@ section {
       /* color: var(--verdigris); */
     }
 
+footer {
+  padding: 2rem 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
