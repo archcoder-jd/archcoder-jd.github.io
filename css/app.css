@@ -212,7 +212,7 @@ nav a:hover { color: var(--ink); }
   background: var(--cobalt);
 }
 
-/* ABOUT: scroll story */
+/* ABOUT: story scroll */
 .story {
   display: grid;
   grid-template-columns: 1fr;
