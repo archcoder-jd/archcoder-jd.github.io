@@ -45,3 +45,11 @@ const scenes = [
     <text class="tb" x="40" y="200">Swift</text><text class="tb" x="300" y="130">Java</text><text class="tb" x="300" y="290">AI</text>
   </svg>`
 ];
+const frame = document.getElementById('frame'), rail = document.getElementById('rail');
+const chapters = [...document.querySelectorAll('.chapter')];
+
+frame.innerHTML = scenes.map((s, i) => `<div class="scene" data-i="${i}">${s}<?div>`).join('');
+
+document.querySelectorAll('.inline-fig').forEach(f => { 
+  f.innerHTML = `<div class="scene">${scenes[f.dataset.fig]}</div>`;
+});
