@@ -529,4 +529,8 @@ footer a {
   .offers li:last-child {
     border-bottom: none;
   }
+
+  .inline-fig {
+    margin-top: 25px;
+  }
 }
