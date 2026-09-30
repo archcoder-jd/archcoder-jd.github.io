@@ -41,7 +41,7 @@ body {
 
 section {
   margin: 3rem 0;
-  padding: clamp(56px, 8vw, 96px) 0;
+  padding: 0.75rem 2rem;
 }
 
 h1 {
@@ -85,7 +85,7 @@ nav a:hover { color: var(--ink); }
 
 /* HERO */
 .hero {
-  padding: clamp(48px, 9vw, 110px) 0 clamp(40px, 6vw, 72px);
+  /* padding: clamp(48px, 9vw, 110px) 0 clamp(40px, 6vw, 72px); */
 }
 
 .hero-title {
