@@ -441,6 +441,7 @@ img {
 /* CONTACT */
 .contact {
   background: var(--panel);
+  padding: 4rem 0;
 }
 
 .contact p {
